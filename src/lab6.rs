@@ -76,5 +76,6 @@ fn string_to_pig_latin(word: &str) -> String {
 
 #[test]
 fn pig_latin_test() {
-    assert_eq!(string_to_pig_latin("apple"), "apple-hay");
+    assert_eq!(string_to_pig_latin("apple"), "apple-hay"); //vowel
+    assert_eq!(string_to_pig_latin("first"), "irst-fay");   
 }
