@@ -1,12 +1,7 @@
 #![allow(dead_code)]
 use std::collections::HashMap;
 
-fn main() {
-    let values: Vec<i32> = vec![23, 43, 34, 43, 54, 50, 43, 52, 56];
-    // values.sort();
-    let res = mode(&values);
-    println!("{:?}", res);
-}
+fn main() {}
 
 //calculating the mean
 fn mean(values: &Vec<i32>) -> f32 {
@@ -66,4 +61,20 @@ fn mode(values: &Vec<i32>) -> i32 {
 fn mode_test() {
     let values: Vec<i32> = vec![23, 43, 34, 43, 54, 50, 43, 52, 56];
     assert_eq!(mode(&values), 43);
+}
+
+//convert strings into pig latin
+fn string_to_pig_latin(word: &str) -> String {
+    let mut chars = word.chars();
+    let first_char = chars.next().unwrap();
+
+    match first_char {
+        'a' | 'e' | 'i' | 'o' | 'u' => format!("{}-hay", word),
+        _ => format!("{}-{}ay", chars.as_str(), first_char),
+    }
+}
+
+#[test]
+fn pig_latin_test() {
+    assert_eq!(string_to_pig_latin("apple"), "apple-hay");
 }
